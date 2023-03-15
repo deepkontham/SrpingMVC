@@ -9,13 +9,13 @@
 </head>
 <body>
 <form action="login"  method="get">
-<input type="text" name="userName"  /><br>
+<p>UserName<input type="text" name="userName"  /></p><br>
 
 
-<input type="text" name="password"  /><br>
+<p>Password<input type="text" name="password"  /></p><br>
 
 
-<input type="submit" name="login" />
+<input type="submit" value="login" />
 </form>
 
 

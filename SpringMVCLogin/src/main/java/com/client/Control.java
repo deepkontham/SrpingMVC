@@ -21,7 +21,7 @@ public class Control {
 			message = "Welcome " + userName + ".";
 			return new ModelAndView("welcome", "message", message);
 		} else {
-			message = "your are entering wrong details.";
+			message = "your are entered wrong details.";
 			return new ModelAndView("errorPage", "message", message);
 		}
 	}
