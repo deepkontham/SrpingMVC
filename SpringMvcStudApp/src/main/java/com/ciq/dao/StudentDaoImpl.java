@@ -1,7 +1,5 @@
 package com.ciq.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,18 +60,14 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public List<Student> getAllstudends() {
-		List<Student>list =jdbcTemplate.query("select * from student",new RowMapper<Student>() {
-
-			@Override
-			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Student s=new Student();
-				s.setId(rs.getInt(1));
-				s.setName(rs.getString(2));
-				s.setDob(rs.getString(3));
-				s.setCity(rs.getString(4));
-				
-				return s;
-			}
+		List<Student>list =jdbcTemplate.query("select * from student",(RowMapper<Student>) (rs, rowNum) -> {
+			Student s=new Student();
+			s.setId(rs.getInt(1));
+			s.setName(rs.getString(2));
+			s.setDob(rs.getString(3));
+			s.setCity(rs.getString(4));
+			
+			return s;
 		});
 		return list;
 		
